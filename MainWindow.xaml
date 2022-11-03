@@ -16,32 +16,37 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2"
                    Text="Thesis Portal" HorizontalAlignment="Center"
                    FontSize="40" Margin="0,20,3,0" FontFamily="Segoe Print"/>
-        <TextBlock Grid.Row="1" x:Name="usernameNav" Text="Benutzerkennung:" 
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Center" FontSize="20" Margin="10"/>
-        <TextBox Grid.Row="1" Grid.Column="1" x:Name="username" 
-                 HorizontalAlignment="Center" Margin="0,0,100,0"
-                 Width="200" Height="20" Background="GhostWhite"/>
 
-        <TextBlock Grid.Row="2" x:Name="userpassNav" Text="Passwort:" 
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Center" FontSize="20" Margin="10"/>
-        <TextBox Grid.Row="2" Grid.Column="1" x:Name="userpass" 
-                 HorizontalAlignment="Center" Margin="0,0,100,0"
-                 Width="200" Height="20" Background="GhostWhite"/>
-        <TextBlock Grid.Row="3" 
-                   Text="Kein Hochschulmitglied? Dann setze ein Haken in die Box!"
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center">
+            <Label x:Name="userNav" Content="Nutzerkennung:"
+                   FontSize="20" Margin="-6,0,0,0"/>
+            <TextBox x:Name="username"
+                     Width="200" Height="20" Background="GhostWhite"/>
+            <Label x:Name="userpassNav" Content="Passwort:" 
+                   FontSize="20" Margin="-6,0,0,0"/>
+            <TextBox x:Name="userpass" HorizontalAlignment="Center"
+                     Width="200" Height="20" Background="GhostWhite"/>
+            <TextBlock x:Name="passForgotten" TextDecorations="Underline">
+                <Run Foreground="Blue">Passwort vergessen?</Run>
+            </TextBlock>
+        </StackPanel>
+        
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <StackPanel>
+        <TextBlock Text="Kein Hochschulmitglied? Dann setze ein Haken in die Box!"
                    TextWrapping="Wrap" Width="200" VerticalAlignment="Center"
                    HorizontalAlignment="Right" FontSize="18" />
-        <CheckBox Grid.Row="3" Grid.Column="1" x:Name="checkbox" 
-                  VerticalAlignment="Center"
-                  HorizontalAlignment="Center" Margin="-200,0,0,0"/>
+            </StackPanel>
+            <StackPanel>
+            <CheckBox Grid.Row="3" Grid.Column="1" x:Name="checkbox" 
+                  VerticalAlignment="Center" Margin="-200,0,0,0"/>
+            </StackPanel>
+        </WrapPanel>
         <Button x:Name="logIn" Margin="180,0,0,0"
                 Grid.Row="4" Height="20" Width="80"
                 Content="Einloggen" />
@@ -49,5 +54,6 @@
                 Grid.Row="4" Grid.Column="1"
                 Width="80" Height="20"
                 Content="Abbrechen"/>
+        <TextBlock/>
     </Grid>
 </Window>
