@@ -1,0 +1,91 @@
+﻿<Window x:Class="ThesisLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThesisLibrary"
+        mc:Ignorable="d"
+        Title="Thesis Portal - LogIn" MinHeight="350" MinWidth="480"
+        Height="350" Width="480" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   Text="Thesis Portal" 
+                   HorizontalAlignment="Center"
+                   FontSize="40" 
+                   Margin="0,15,3,0" 
+                   FontFamily="TW Cen MT"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <Label x:Name="userNav" 
+                   Content="Nutzerkennung:"
+                   FontSize="20" 
+                   Margin="-6,0,0,0"/>
+            <TextBox x:Name="username"
+                     Width="200" 
+                     Height="20" 
+                     Background="GhostWhite"
+                     Style="{StaticResource roundCornerTBox}"/>
+            <Label x:Name="userpassNav" 
+                   Content="Passwort:" 
+                   FontSize="20" 
+                   Margin="-6,0,0,0"/>
+            <TextBox x:Name="userpass" 
+                     HorizontalAlignment="Center"
+                     Width="200" 
+                     Height="20" 
+                     Background="GhostWhite"
+                     Style="{StaticResource roundCornerTBox}"/>
+            <TextBlock x:Name="passForgotten" 
+                       TextDecorations="Underline">
+                <Run Foreground="Blue">Passwort vergessen?</Run>
+            </TextBlock>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="1"
+                    VerticalAlignment="Center">
+            <Button x:Name="logIn"
+                    Content="Einloggen"
+                    Height="20" 
+                    Width="80"
+                    Margin="0,0,0,10"
+                    Style="{StaticResource roundCornerButton}"
+                    Click="OnClickLogin"/>
+            <Button x:Name="register"                
+                    Content="Registrieren"
+                    Width="80" 
+                    Height="20"
+                    Style="{StaticResource roundCornerButton}"
+                    Click="OnClickLogin"/>
+            <Button x:Name="cancelButton"
+                    Content="Abbrechen"
+                    Width="80"
+                    Height="20"
+                    Margin="0,10,0,0"
+                    Style="{StaticResource roundCornerButton}"
+                    Click="OnClickQuit"/>
+            <Button x:Name="guestLog"
+                    Content="Gastanmeldung"                    
+                    Width="110"
+                    Height="20"
+                    Margin="0,10,0,0"
+                    Style="{StaticResource roundCornerButton}"
+                    Click="OnClickLogin"/>
+        </StackPanel>
+        <Image Grid.Row="2" Grid.ColumnSpan="2"
+               Source="/Resources/HS Flensburg Logo.png"/>
+    </Grid>
+</Window>

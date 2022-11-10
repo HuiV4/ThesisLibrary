@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ThesisLibrary
+namespace ThesisLibrary.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für ThesisRequest.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ThesisRequest : Window
     {
-        public MainWindow()
+        public ThesisRequest()
         {
             InitializeComponent();
         }

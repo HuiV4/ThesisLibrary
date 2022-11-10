@@ -1,0 +1,91 @@
+﻿<Window x:Class="ThesisLibrary.Thesis_MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThesisLibrary"
+        mc:Ignorable="d"
+        Title="Thesis_MainWindow" Height="450" Width="800">
+    <DockPanel LastChildFill="False">
+        <StatusBar DockPanel.Dock="Bottom"
+                   Height="20"
+                   Background="LightGray">
+            <StatusBar.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" 
+                            Value="10"/>
+                </Style>
+            </StatusBar.Resources>
+        </StatusBar>
+        <StackPanel DockPanel.Dock="Top">
+            <ToolBar Background="LightGray">
+                <Menu Background="AliceBlue">
+                    <MenuItem Header="Start">
+                        <MenuItem Header="Beenden"
+                                  Click="OnClickClose"/>
+                    </MenuItem>
+                    <MenuItem Header="Bearbeiten">
+                        <MenuItem Header="Arbeit anlegen"
+                                  Click="OnCLickAddThesis"/>
+                    </MenuItem>
+                    <MenuItem Header="Ansicht">
+                        <MenuItem Header="Anfragen einsehen"/>
+                    </MenuItem>
+                    <MenuItem Header="Verwalten">
+                        <MenuItem Header="Test"/>
+                    </MenuItem>
+                    <MenuItem Header="Hilfe">
+                        <MenuItem Header="Besucher"/>
+                        <MenuItem Header="Student"/>
+                        <MenuItem Header="Dozent"/>
+                        <MenuItem Header="Admin"/>
+                    </MenuItem>
+                </Menu>
+                <Button Content="Refresh">
+                    <!--<Image Source="/Refresh"/>-->
+                </Button>
+                <Button Content="Logout"
+                        Click="OnCLickLogout">
+                    <!--<Image Source="/Logout"/>-->
+                </Button>
+            </ToolBar>
+        </StackPanel>
+        <ListBox DockPanel.Dock="Left" 
+                 Width="200" 
+                 Background="WhiteSmoke">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" 
+                            Value="10"/>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!--Fill in things from ThesisClass-->
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBoxItem ToolTip="Test"/>
+        </ListBox>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock Text="Random Bachelorthesis"
+                       HorizontalAlignment="Center"
+                       FontSize="26"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap"
+                       TextTrimming="CharacterEllipsis"
+                       ToolTip="Hier steht dein Binding"/>
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+            <TextBlock/>
+            <!--Fill here with Databindings-->
+        </StackPanel>
+    </DockPanel>
+</Window>
