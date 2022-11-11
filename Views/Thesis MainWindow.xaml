@@ -9,7 +9,7 @@
     <DockPanel LastChildFill="False">
         <StatusBar DockPanel.Dock="Bottom"
                    Height="20"
-                   Background="LightGray">
+                   Background="AliceBlue">
             <StatusBar.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" 
@@ -17,22 +17,30 @@
                 </Style>
             </StatusBar.Resources>
         </StatusBar>
-        <StackPanel DockPanel.Dock="Top">
-            <ToolBar Background="LightGray">
+        <Grid DockPanel.Dock="Top" 
+              HorizontalAlignment="Stretch"
+              Background="AliceBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ToolBar>
                 <Menu Background="AliceBlue">
                     <MenuItem Header="Start">
                         <MenuItem Header="Beenden"
                                   Click="OnClickClose"/>
                     </MenuItem>
-                    <MenuItem Header="Bearbeiten">
+                    <MenuItem x:Name="editMenu"
+                              Header="Bearbeiten">
                         <MenuItem Header="Arbeit anlegen"
                                   Click="OnCLickAddThesis"/>
-                    </MenuItem>
-                    <MenuItem Header="Ansicht">
                         <MenuItem Header="Anfragen einsehen"/>
+
                     </MenuItem>
-                    <MenuItem Header="Verwalten">
-                        <MenuItem Header="Test"/>
+                    <MenuItem x:Name="adminMenu"
+                              Header="Verwalten">
+                        <MenuItem Header="Benutzer anlegen..."
+                                  Click="OnClickAddUser"/>
                     </MenuItem>
                     <MenuItem Header="Hilfe">
                         <MenuItem Header="Besucher"/>
@@ -41,18 +49,26 @@
                         <MenuItem Header="Admin"/>
                     </MenuItem>
                 </Menu>
-                <Button Content="Refresh">
-                    <!--<Image Source="/Refresh"/>-->
-                </Button>
-                <Button Content="Logout"
-                        Click="OnCLickLogout">
-                    <!--<Image Source="/Logout"/>-->
-                </Button>
             </ToolBar>
-        </StackPanel>
+            <Button Grid.Column="1"
+                    Click="OnCLickLogout"
+                    HorizontalAlignment="Right"
+                    Background="AliceBlue"
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                    Margin="0,0,10,0">
+                <WrapPanel>
+                    <Image Source="/Resources/Pictures/logout.png" 
+                           Height="21"/>
+                    <TextBlock Text="Abmelden"
+                               VerticalAlignment="Center"
+                               Margin="3,0,0,0"/>
+                </WrapPanel>
+            </Button>
+        </Grid>
         <ListBox DockPanel.Dock="Left" 
                  Width="200" 
-                 Background="WhiteSmoke">
+                 Background="WhiteSmoke"
+                 Margin="10,10,0,0">
             <ListBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" 
@@ -74,7 +90,19 @@
                        TextWrapping="Wrap"
                        TextTrimming="CharacterEllipsis"
                        ToolTip="Hier steht dein Binding"/>
-            <TextBlock/>
+            <WrapPanel Margin="7,5,7,0">
+                <ComboBox x:Name="subject"
+                          IsEditable="True"
+                          Text="--Studienfach--"/>
+                <ComboBox x:Name="subjectArea"
+                          IsEditable="True"
+                          Text="--Fachbereich--" />
+                <ComboBox x:Name="professor"
+                          IsEditable="True"
+                          IsReadOnly="True"
+                          Text="--Dozent--"/>
+
+            </WrapPanel>
             <!--Fill here with Databindings-->
             <TextBlock/>
             <!--Fill here with Databindings-->

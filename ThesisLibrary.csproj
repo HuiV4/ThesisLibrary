@@ -3,22 +3,30 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\HS Flensburg Logo.png" />
+    <None Remove="Resources\Pictures\logout.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\HS Flensburg Logo.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <Resource Include="Resources\Pictures\HS Flensburg Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\logout.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
   </ItemGroup>
 
 </Project>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace ThesisLibrary
 {
@@ -20,6 +21,7 @@ namespace ThesisLibrary
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static string helpLink = "https://cm.hs-flensburg.de/qisserver/pages/cs/psv/account/passwortreset/firstpagePasswortReset.xhtml?_flowId=passwordreset-flow&_flowExecutionKey=e1s1";
         public MainWindow()
         {
             InitializeComponent();
@@ -27,14 +29,22 @@ namespace ThesisLibrary
 
         private void OnClickLogin(object sender, RoutedEventArgs e)
         {
-            Thesis_MainWindow thesisMain = new Thesis_MainWindow();
+
+            Thesis_MainWindow thesisMain = new Thesis_MainWindow((Button)sender);
             thesisMain.Show();
             Close();
         }
 
-        private void OnClickQuit(object sender, RoutedEventArgs e)
+        private void OnClickQuit(object sender, RoutedEventArgs e) => Close();
+
+        private void OnClickOpenWeb(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            var psi = new ProcessStartInfo
+            {
+                FileName = helpLink,
+                UseShellExecute = true
+            };
+            Process.Start(psi);
         }
 
         //private void OnClickLoginGuest(object sender, RoutedEventArgs e)

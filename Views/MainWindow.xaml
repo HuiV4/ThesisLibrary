@@ -49,7 +49,11 @@
                      Background="GhostWhite"
                      Style="{StaticResource roundCornerTBox}"/>
             <TextBlock x:Name="passForgotten" 
-                       TextDecorations="Underline">
+                       TextDecorations="Underline"
+                       MouseLeftButtonUp="OnClickOpenWeb"
+                       Cursor="Hand"
+                       Width="110"
+                       HorizontalAlignment="Left">
                 <Run Foreground="Blue">Passwort vergessen?</Run>
             </TextBlock>
         </StackPanel>
@@ -59,33 +63,25 @@
                     VerticalAlignment="Center">
             <Button x:Name="logIn"
                     Content="Einloggen"
-                    Height="20" 
-                    Width="80"
                     Margin="0,0,0,10"
                     Style="{StaticResource roundCornerButton}"
                     Click="OnClickLogin"/>
             <Button x:Name="register"                
                     Content="Registrieren"
-                    Width="80" 
-                    Height="20"
                     Style="{StaticResource roundCornerButton}"
                     Click="OnClickLogin"/>
             <Button x:Name="cancelButton"
                     Content="Abbrechen"
-                    Width="80"
-                    Height="20"
                     Margin="0,10,0,0"
                     Style="{StaticResource roundCornerButton}"
                     Click="OnClickQuit"/>
             <Button x:Name="guestLog"
                     Content="Gastanmeldung"                    
-                    Width="110"
-                    Height="20"
                     Margin="0,10,0,0"
                     Style="{StaticResource roundCornerButton}"
                     Click="OnClickLogin"/>
         </StackPanel>
         <Image Grid.Row="2" Grid.ColumnSpan="2"
-               Source="/Resources/HS Flensburg Logo.png"/>
+               Source="/Resources/Pictures/HS Flensburg Logo.png"/>
     </Grid>
 </Window>

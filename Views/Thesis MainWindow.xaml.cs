@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThesisLibrary.Views;
 using ThesisLibrary.Windows;
 
 namespace ThesisLibrary
@@ -20,9 +21,15 @@ namespace ThesisLibrary
     /// </summary>
     public partial class Thesis_MainWindow : Window
     {
-        public Thesis_MainWindow()
-        {
+        public Thesis_MainWindow(Button sender)
+        {           
             InitializeComponent();
+
+            if (sender.Content.Equals("Gastanmeldung"))
+            {
+                editMenu.IsEnabled = false;
+                adminMenu.IsEnabled = false;
+            }
         }
 
         private void OnClickClose(object sender, RoutedEventArgs e) => Close();
@@ -35,8 +42,13 @@ namespace ThesisLibrary
         private void OnCLickAddThesis(object sender, RoutedEventArgs e)
         {
             ThesisRequest tr = new ThesisRequest();
-            tr.Show();
-            this.Close();
+            tr.ShowDialog();
+        }
+
+        private void OnClickAddUser(object sender, RoutedEventArgs e)
+        {
+            ModalAddUser mad = new ModalAddUser();
+            mad.ShowDialog();
         }
     }
 }
