@@ -34,7 +34,8 @@
             <Button x:Name="createUser"
                     Content="Hinzufügen"
                     Style="{StaticResource roundCornerButton}"
-                    Margin="5"/>
+                    Margin="5"
+                    Click="OnClickUserAdd"/>
             <Button x:Name="cancelUserCreation"
                     Content="Abbrechen"
                     Style="{StaticResource roundCornerButton}"

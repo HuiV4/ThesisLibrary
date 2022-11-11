@@ -15,11 +15,11 @@ namespace ThesisLibrary
     public partial class App : Application
     {
         Database tDB = new Database();
-        UserDB uDB = new UserDB();
+        UserTB uTB = new UserTB();
         public App()
         {
             tDB.CreateDatabaseAndTable();
-            uDB.CreateDatabaseAndTable();
+            uTB.CreateTable();
         }
     }
 }

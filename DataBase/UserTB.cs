@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace ThesisLibrary.DataBase
 {
-    public class UserDB
+    public class UserTB
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
@@ -19,11 +19,14 @@ namespace ThesisLibrary.DataBase
         /// Diese Methode erstellt die Datenbank, wenn noch keine vorhanden ist.
         /// Wenn die DB bereit vorhanden ist, wird eine Verbindung hergestellt
         /// </summary>
-        public void CreateDatabaseAndTable()
+        public void CreateTable()
         {
             try
             {
-                if (!File.Exists(Directory.GetCurrentDirectory() + @"\UserDB.sqlite"))
+                con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
+                cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' AND name='Users';", con);
+                
+                if (!File.Exists(Directory.GetCurrentDirectory() + @"\ThesisDB.sqlite"))
                 {
                     string sql = @"CREATE TABLE Users(
                                 [UserID] INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,39 +34,35 @@ namespace ThesisLibrary.DataBase
                                 [UserClass] INTEGER,
                                 [Firstname] TEXT,
                                 [Surname] TEXT);";
-                    con = new SQLiteConnection("Data Source=UserDB.sqlite;Version=3;");
+                    con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
                     con.Open();
                     cmd = new SQLiteCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-                else
-                {
-                    con = new SQLiteConnection($@"Data Source={Directory.GetCurrentDirectory()}\UserDB.sqlite;Version=3;");
-                }
+
             }
             catch (Exception ex)
             {
                 //Fehlermeldung ausgeben
                 MessageBox.Show(ex.Message);
-            }            
+            }
         }
         public void AddUserData(string firstName, string surName, string eMail, int userClass)
-        {            
-            string insertSQL = "INSERT INTO UserDB (EMail, UserClass, FirstName, Surname) VALUES ("+firstName+", "+surName+","+eMail+","+userClass+")";
-            con = new SQLiteConnection("Data Source=UserDB.sqlite;Version=3;");
-            con.Open();
-            cmd = new SQLiteCommand(insertSQL, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
+        {
             try
             {
+                con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;");
+                cmd = new SQLiteCommand();
+                cmd.CommandText = "insert into Users(EMail, UserClass, FirstName, Surname) values ('" + eMail + "','" + userClass + "','" + firstName + "','" + surName + "')";
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
     }
