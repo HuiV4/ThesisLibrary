@@ -42,10 +42,10 @@ namespace ThesisLibrary.DataBase
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-                else
-                {
-                    con = new SQLiteConnection($@"Data Source={Directory.GetCurrentDirectory()}\ThesisDB.sqlite;Version=3;");
-                }
+                //else
+                //{
+                //    con = new SQLiteConnection($@"Data Source={Directory.GetCurrentDirectory()}\ThesisDB.sqlite;Version=3;");
+                //}
             }
             catch (Exception ex)
             {
@@ -53,6 +53,6 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThesisLibrary"
         mc:Ignorable="d"
-        Title="Thesis_MainWindow" Height="450" Width="800">
+        Title="ThesisPortal" Height="450" Width="800">
     <DockPanel LastChildFill="False">
         <StatusBar DockPanel.Dock="Bottom"
                    Height="20"
@@ -35,7 +35,6 @@
                         <MenuItem Header="Arbeit anlegen"
                                   Click="OnCLickAddThesis"/>
                         <MenuItem Header="Anfragen einsehen"/>
-
                     </MenuItem>
                     <MenuItem x:Name="adminMenu"
                               Header="Verwalten">
@@ -93,9 +92,11 @@
             <WrapPanel Margin="7,5,7,0">
                 <ComboBox x:Name="subject"
                           IsEditable="True"
+                          IsReadOnly="True"
                           Text="--Studienfach--"/>
                 <ComboBox x:Name="subjectArea"
                           IsEditable="True"
+                          IsReadOnly="True"
                           Text="--Fachbereich--" />
                 <ComboBox x:Name="professor"
                           IsEditable="True"

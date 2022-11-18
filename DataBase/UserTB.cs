@@ -24,9 +24,12 @@ namespace ThesisLibrary.DataBase
             try
             {
                 con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
+                con.Open();
                 cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' AND name='Users';", con);
+
+                var result = cmd.ExecuteReader();
                 
-                if (!File.Exists(Directory.GetCurrentDirectory() + @"\ThesisDB.sqlite"))
+                if (!result.HasRows)
                 {
                     string sql = @"CREATE TABLE Users(
                                 [UserID] INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,18 +37,22 @@ namespace ThesisLibrary.DataBase
                                 [UserClass] INTEGER,
                                 [Firstname] TEXT,
                                 [Surname] TEXT);";
-                    con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
-                    con.Open();
+                    //con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
+                    //con.Open();
                     cmd = new SQLiteCommand(sql, con);
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();                    
                     con.Close();
                 }
-
+                result.Close();
             }
             catch (Exception ex)
             {
                 //Fehlermeldung ausgeben
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
             }
         }
         public void AddUserData(string firstName, string surName, string eMail, int userClass)
@@ -58,10 +65,11 @@ namespace ThesisLibrary.DataBase
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
-                con.Close();
+                con.Close(); // Daten können noch dppelt gespeichert werden (wegen fortlaufender ID)
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
         }
