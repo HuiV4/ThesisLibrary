@@ -64,7 +64,8 @@
                 </WrapPanel>
             </Button>
         </Grid>
-        <ListBox DockPanel.Dock="Left" 
+        <ListBox x:Name="Test" 
+                 DockPanel.Dock="Left" 
                  Width="200" 
                  Background="WhiteSmoke"
                  Margin="10,10,0,0">
@@ -76,10 +77,12 @@
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <!--Fill in things from ThesisClass-->
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" Text="{Binding Path=FirstName}" FontWeight="Bold"/>
+                        <TextBlock DockPanel.Dock="Bottom" Text="{Binding Path=LastName}"/>
+                    </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <ListBoxItem ToolTip="Test"/>
         </ListBox>
         <StackPanel DockPanel.Dock="Top">
             <TextBlock Text="Random Bachelorthesis"

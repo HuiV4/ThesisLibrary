@@ -14,12 +14,16 @@ namespace ThesisLibrary
     /// </summary>
     public partial class App : Application
     {
-        Database tDB = new Database();
-        UserTB uTB = new UserTB();
+        Database tDB = new();
+        UserTB uTB = new();
+        DepartmentTB dTB = new();
+        DegreeCourseTB dCTB = new();
         public App()
         {
             tDB.CreateDatabaseAndTable();
             uTB.CreateTable();
+            dTB.CreateTable();
+            dCTB.CreateTable();
         }
     }
 }

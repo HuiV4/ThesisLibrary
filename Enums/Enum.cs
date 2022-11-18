@@ -20,4 +20,11 @@ namespace ThesisLibrary.Enums
         Validation,
         Finished
     }
+    public enum DepartmentEnum
+    {
+        Fachbereich1,
+        Fachbereich2,
+        Fachbereich3,
+        Fachbereich4
+    }
 }

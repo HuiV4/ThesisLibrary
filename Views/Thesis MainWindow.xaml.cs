@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThesisLibrary.DataModel;
 using ThesisLibrary.Views;
 using ThesisLibrary.Windows;
 
@@ -30,24 +31,28 @@ namespace ThesisLibrary
                 editMenu.IsEnabled = false;
                 adminMenu.IsEnabled = false;
             }
+            Admin admin = new();
+            if (Test == null)
+                return;
+            Test.ItemsSource = admin.LoadAdmins();
         }
 
         private void OnClickClose(object sender, RoutedEventArgs e) => Close();
         private void OnCLickLogout(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
+            MainWindow mw = new();
             this.Close();
             mw.Show();
         }
         private void OnCLickAddThesis(object sender, RoutedEventArgs e)
         {
-            ThesisRequest tr = new ThesisRequest();
+            ThesisRequest tr = new();
             tr.ShowDialog();
         }
 
         private void OnClickAddUser(object sender, RoutedEventArgs e)
         {
-            ModalAddUser mad = new ModalAddUser();
+            ModalAddUser mad = new();
             mad.ShowDialog();
         }
     }

@@ -7,8 +7,8 @@
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ModalAddUser" Height="280" Width="275">
-    <StackPanel x:Name="stackLog">
+        Title="ModalAddUser" Height="320" Width="275">
+    <StackPanel>
         <Label Content="Name:"
                Margin="27,0,0,0"/>
         <TextBox x:Name="userFirstName"
@@ -24,10 +24,15 @@
         <TextBox x:Name="userEMail"
                  Width="200"
                  Style="{StaticResource roundCornerTBox}"/>
+        <Label Content="Passwort (mind. 8 Zeichen)"
+               Margin="27,0,0,0"/>
+        <TextBox x:Name="password"
+                 Width="200"
+                 Style="{StaticResource roundCornerTBox}"/>
         <Label  Content="Benutzerklasse"
                 Margin="27,0,0,0"/>
         <ComboBox x:Name="userClass"
-                  ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:UserEnum}}}"
+                  ItemsSource="{Binding Source={enums:EnumBindingSourceExtension {x:Type enums:UserEnum}}}"
                   Width="200"/>
         <WrapPanel HorizontalAlignment="Center"
                    Margin="0,15,0,0">
