@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,16 +15,24 @@ namespace ThesisLibrary
     /// </summary>
     public partial class App : Application
     {
-        Database tDB = new();
+        ThesisDB tDB = new();
         UserTB uTB = new();
         DepartmentTB dTB = new();
         DegreeCourseTB dCTB = new();
+        ProfessorTB pTB = new();
+        StudentTB sTB = new();
+
         public App()
         {
-            tDB.CreateDatabaseAndTable();
-            uTB.CreateTable();
-            dTB.CreateTable();
-            dCTB.CreateTable();
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\ThesisDB.sqlite"))
+            {
+                tDB.CreateDatabaseAndTable();
+                uTB.CreateUsers();
+                dTB.CreateDept();
+                dCTB.CreateDegreeCourse();
+                pTB.CreateProfessor();
+                sTB.CreateStudent();
+            }
         }
     }
 }

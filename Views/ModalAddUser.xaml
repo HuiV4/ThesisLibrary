@@ -7,7 +7,7 @@
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ModalAddUser" Height="320" Width="275">
+        Title="ModalAddUser" Height="360" Width="275">
     <StackPanel>
         <Label Content="Name:"
                Margin="27,0,0,0"/>
@@ -33,7 +33,15 @@
                 Margin="27,0,0,0"/>
         <ComboBox x:Name="userClass"
                   ItemsSource="{Binding Source={enums:EnumBindingSourceExtension {x:Type enums:UserEnum}}}"
-                  Width="200"/>
+                  Width="200"
+                  LostFocus="OnLostFocusChange"/>
+        <Label  x:Name="dynamicLabel"
+                Content=""
+                Margin="27,0,0,0"/>
+        <ComboBox x:Name="dynamicCombobox"                  
+                  Width="200"
+                  IsEnabled="False"/>
+              <!--ItemsSource=""-->
         <WrapPanel HorizontalAlignment="Center"
                    Margin="0,15,0,0">
             <Button x:Name="createUser"

@@ -19,8 +19,19 @@ namespace ThesisLibrary.DataModel
         public string EMail { get; set; }
         public string Password { get; set; }
         public int UserClass { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="surName"></param>
+        /// <param name="eMail"></param>
+        /// <param name="password"></param>
+        /// <param name="userClass"></param>
+        /// <returns></returns>
         public bool ParameterCheck(string firstName, string surName, string eMail, string password, ComboBox userClass)
         {
+            
             if (firstName == "" || surName == "" || eMail == "" || password.Length < 8 || userClass.SelectedItem == null)
             {
                 string msg = "Sie haben nicht alle Felder ausgefüllt!\nBitte beachten sie, dass Passwörter mind. 8 Zeichen lang sein müssen!";

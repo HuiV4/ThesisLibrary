@@ -1,0 +1,5 @@
+FachbereichsID; Fachbereichsname
+1; Fachbereich 1
+2; Fachbereich 2
+3; Fachbereich 3
+4; Fachbereich 4

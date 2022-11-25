@@ -1,0 +1,20 @@
+Studiengang; Fachbereich
+Angewandte Informatik; 3
+Betriebswirtschaft; 4
+Biotechnologie, Lebensmitteltechnologie & Verfahrenstechnik; 2
+Biotechnologie-Verfahrenstechnik; 2
+Energiewissenschaften; 2
+Film & Media Arts; 3
+Internationale Fachkommunikation; 3
+Maschinenbau; 1
+Medieninformatik; 3
+Schiffstechnik; 1
+Seeverkehr, Nautik & Logistik; 1
+Wirtschaftsinformatik; 4
+Applied Bio & Food Science; 2
+Business Management; 4
+Business Management / Wirtschaftsinformatik; 4
+Design, Film & Marketing; 3
+eHealth; 4
+Systemtechnik; 1
+Wind Energy Engineering; 2

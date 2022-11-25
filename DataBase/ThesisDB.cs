@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace ThesisLibrary.DataBase
 {
-    public class Database
+    public class ThesisDB
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
@@ -36,16 +36,13 @@ namespace ThesisLibrary.DataBase
                                [StudentID] INTEGER,
                                [LecturerID] INTEGER,
                                [SecondLecturerID] INTEGER);";
-                    con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;");
-                    con.Open();
-                    cmd = new SQLiteCommand(sql, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
+                    {
+                        con.Open();
+                        cmd = new SQLiteCommand(sql, con);
+                        cmd.ExecuteNonQuery();                        
+                    }
                 }
-                //else
-                //{
-                //    con = new SQLiteConnection($@"Data Source={Directory.GetCurrentDirectory()}\ThesisDB.sqlite;Version=3;");
-                //}
             }
             catch (Exception ex)
             {

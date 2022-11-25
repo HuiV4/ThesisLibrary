@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThesisLibrary.Windows"
+        xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
         Title="ThesisRequest" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top"
+                   Text="Details zur Arbeit angeben:"
+                   HorizontalAlignment="Center"
+                   FontSize="26"
+                   FontWeight="DemiBold"
+                   Margin="0,10,0,0"/>
+        <StackPanel DockPanel.Dock="Left"
+                    Margin="10">
+            <Label Content="Fachbereich auswählen:"
+                   Margin="-5,0,0,0"/>
+            <ComboBox x:Name="Depatment"
+                      ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:DepartmentEnum}}}"
+                      Width="200"/>
+            <Label Content="Welcher Studiengang?"
+                   Margin="-5,0,0,0"/>
+            <TextBox x:Name="courseDegree"
+                     Style="{StaticResource roundCornerTBox}"/>
+            <Label Content="Titel der Arbeit:"
+                   Margin="-5,0,0,0"/>
+            <TextBox x:Name="thesisTitel"
+                     Style="{StaticResource roundCornerTBox}"
+                     TextWrapping="Wrap"/>
+
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right">
+        </StackPanel>
+    </DockPanel>
 </Window>

@@ -10,36 +10,18 @@ namespace ThesisLibrary.DataBase
 {
     public class DepartmentTB
     {
-        SQLiteConnection con;
-        SQLiteCommand cmd;
-        SQLiteDataReader dr;
-        public void CreateTable()
+        DBMethods dbMethods;
+        DummyData dd;
+        public void CreateDept()
         {
-            try
-            {
-                using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
-                {
-                    con.Open();
-                    cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' AND name='Department';", con);
-
-                    using (var result = cmd.ExecuteReader())
-                    {
-                        if (!result.HasRows)
-                        {
-                            string sql = @"CREATE TABLE Department(
-                                [DepartmentID] INTEGER NOT NULL PRIMARY KEY,                               
+            dbMethods = new DBMethods();
+            dd = new DummyData();
+            string tableName = "Department";
+            string tableScheme = @"CREATE TABLE Department(
+                                [DepartmentID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,                               
                                 [DepartmentName] TEXT NOT NULL);";
-                            cmd = new SQLiteCommand(sql, con);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //Fehlermeldung ausgeben
-                MessageBox.Show(ex.Message);
-            }
-        }
+            dbMethods.CreateTable(tableName, tableScheme);
+            dd.AddDepartment();
+        }        
     }
 }

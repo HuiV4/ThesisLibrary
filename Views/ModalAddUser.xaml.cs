@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,12 @@ namespace ThesisLibrary.Views
     public partial class ModalAddUser : Window
     {
         Users users;
+        Department dept;
+        DegreeCourse degree;
         public ModalAddUser()
         {
             InitializeComponent();
+            userClass.SelectedItem = 3;
         }
 
         private void OnClickClose(object sender, RoutedEventArgs e) => this.Close();
@@ -39,12 +43,43 @@ namespace ThesisLibrary.Views
             if(MessageBox.Show(msg,"Benutzer hinzufügen",MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)            
             {
                 UserTB userTB = new();
-                userTB.AddUserData(userFirstName.Text.Trim(), userSurName.Text.Trim(), userEMail.Text.Trim(), password.Text.Trim(), (int)userClass.SelectedItem) ;
+                userTB.AddUserData(userFirstName.Text.Trim(), userSurName.Text.Trim(), userEMail.Text.Trim(), password.Text.Trim(), (int)userClass.SelectedItem);
+                int userID = userTB.GetUserID(userFirstName.Text.Trim(), userSurName.Text.Trim());
+
+                if ((string)dynamicLabel.Content == "Fachbereich")
+                    userTB.AddProfessor(userID, (int)userClass.SelectedItem, dynamicCombobox.SelectedItem.ToString());
+                else if ((string)dynamicLabel.Content == "Studiengang")
+                    userTB.AddStudent(userID, (int)userClass.SelectedItem, dynamicCombobox.SelectedItem.ToString());
+
                 userFirstName.Clear();
                 userSurName.Clear();
                 userEMail.Clear();
                 password.Clear();
+                dynamicCombobox.SelectedItem = null;
+                userClass.SelectedItem = null;
             }            
+        }
+
+        private void OnLostFocusChange(object sender, RoutedEventArgs e)
+        {
+            dynamicLabel.Content = "";
+            dynamicCombobox.IsEnabled = true;
+            if (userClass.Text == "Professor")
+            {
+                dynamicLabel.Content = "Fachbereich";
+
+                dept = new Department();
+                List<Department> deptList = dept.LoadDepartments();
+                dynamicCombobox.ItemsSource = deptList;
+            }
+            else if (userClass.Text == "Student")
+            {
+                dynamicLabel.Content = "Studiengang";
+
+                degree = new DegreeCourse();
+                List<DegreeCourse> degreeList = degree.LoadDegreeCourses();
+                dynamicCombobox.ItemsSource = degreeList;
+            }
         }
     }
 }
