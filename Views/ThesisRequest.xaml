@@ -7,7 +7,7 @@
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
         Title="ThesisRequest" Height="450" Width="800">
-    <DockPanel>
+    <DockPanel LastChildFill="False">
         <TextBlock DockPanel.Dock="Top"
                    Text="Details zur Arbeit angeben:"
                    HorizontalAlignment="Center"
@@ -16,21 +16,20 @@
                    Margin="0,10,0,0"/>
         <StackPanel DockPanel.Dock="Left"
                     Margin="10">
-            <Label Content="Fachbereich auswählen:"
-                   Margin="-5,0,0,0"/>
-            <ComboBox x:Name="Depatment"
-                      ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:DepartmentEnum}}}"
-                      Width="200"/>
-            <Label Content="Welcher Studiengang?"
-                   Margin="-5,0,0,0"/>
-            <TextBox x:Name="courseDegree"
-                     Style="{StaticResource roundCornerTBox}"/>
             <Label Content="Titel der Arbeit:"
                    Margin="-5,0,0,0"/>
             <TextBox x:Name="thesisTitel"
                      Style="{StaticResource roundCornerTBox}"
                      TextWrapping="Wrap"/>
-
+            <Label Content="Fachbereich auswählen:"
+                   Margin="-5,0,0,0"/>
+            <ComboBox x:Name="deptBox"/>
+            <Label Content="Welcher Studiengang?"
+                   Margin="-5,0,0,0"/>
+            <ComboBox x:Name="courseBox"/>
+            <Label Content="Welchen Professor wollen sie anfragen?"
+                   Margin="-5,0,0,0"/>
+            <ComboBox x:Name="profBox"/>
         </StackPanel>
         <StackPanel DockPanel.Dock="Right">
         </StackPanel>

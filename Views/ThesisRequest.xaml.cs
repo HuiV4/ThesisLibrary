@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThesisLibrary.DataModel;
 
 namespace ThesisLibrary.Windows
 {
@@ -19,9 +20,20 @@ namespace ThesisLibrary.Windows
     /// </summary>
     public partial class ThesisRequest : Window
     {
+        Department dept;
+        DegreeCourse degree;
+        Professor prof;
         public ThesisRequest()
         {
             InitializeComponent();
+            degree = new DegreeCourse();
+            List<DegreeCourse> degreeList = degree.LoadDegreeCourses();
+            dept = new Department();
+            List<Department> deptList = dept.LoadDepartments();
+            prof = new Professor();
+            profBox.ItemsSource = prof.LoadProfessors();
+            courseBox.ItemsSource = degreeList;
+            deptBox.ItemsSource = deptList;
         }
     }
 }

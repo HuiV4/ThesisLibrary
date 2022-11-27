@@ -16,11 +16,9 @@ namespace ThesisLibrary.DataBase
             string tableName = "Professor";
             string tableScheme = @"CREATE TABLE Professor(
                                 [ProfessorID] INTEGER PRIMARY KEY AUTOINCREMENT,                               
-                                [UserID] INTEGER NOT NULL,
-                                [UserClass] INTEGER NOT NULL,
+                                [UserID] INTEGER NOT NULL,                                
                                 [DepartmentName] TEXT NOT NULL,
                                 FOREIGN KEY(DepartmentName) REFERENCES Department(DepartmentName),
-                                FOREIGN KEY(UserClass) REFERENCES Users(UserClass),
                                 FOREIGN KEY(UserID) REFERENCES Users(UserID));";
             dbMethods.CreateTable(tableName, tableScheme);
         }

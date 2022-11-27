@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThesisLibrary.DataBase;
 using ThesisLibrary.DataModel;
 using ThesisLibrary.Views;
 using ThesisLibrary.Windows;
@@ -23,13 +24,35 @@ namespace ThesisLibrary
     public partial class Thesis_MainWindow : Window
     {
         public Thesis_MainWindow(Button sender)
-        {           
+        {
             InitializeComponent();
 
-            if (sender.Content.Equals("Gastanmeldung"))
+            editMenu.IsEnabled = false;
+            adminMenu.IsEnabled = false;
+        }
+        public Thesis_MainWindow(Button sender, TextBox email, TextBox password)
+        {           
+            InitializeComponent();
+            
+            if (sender.Content.Equals("Einloggen"))
             {
-                editMenu.IsEnabled = false;
-                adminMenu.IsEnabled = false;
+                UserTB userTB = new();
+                int userID = userTB.GetUserID(email.Text.Trim(), password.Text.Trim()); ;
+                if (email.Text == "admin" && password.Text == "admin" || userID == 2)
+                {
+                    editMenu.IsEnabled = true;
+                    adminMenu.IsEnabled = true;
+                }
+                else if (userID == 0)
+                {
+                    adminMenu.IsEnabled = false;
+                    requestLookUp.IsEnabled = false;
+                }
+                else if (userID == 1)
+                {
+                    adminMenu.IsEnabled = false;
+                    addRequest.IsEnabled = false;
+                }    
             }
             Admin admin = new();
             if (Test == null)

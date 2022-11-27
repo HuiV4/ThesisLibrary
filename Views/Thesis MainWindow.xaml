@@ -32,9 +32,11 @@
                     </MenuItem>
                     <MenuItem x:Name="editMenu"
                               Header="Bearbeiten">
-                        <MenuItem Header="Arbeit anlegen"
+                        <MenuItem x:Name="addRequest"
+                                  Header="Arbeit anlegen"
                                   Click="OnCLickAddThesis"/>
-                        <MenuItem Header="Anfragen einsehen"/>
+                        <MenuItem x:Name="requestLookUp"
+                                  Header="Anfragen einsehen"/>
                     </MenuItem>
                     <MenuItem x:Name="adminMenu"
                               Header="Verwalten">

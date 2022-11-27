@@ -19,7 +19,7 @@ namespace ThesisLibrary.DataBase
             string tableName = "Department";
             string tableScheme = @"CREATE TABLE Department(
                                 [DepartmentID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,                               
-                                [DepartmentName] TEXT NOT NULL);";
+                                [DepartmentName] TEXT NOT NULL UNIQUE);";
             dbMethods.CreateTable(tableName, tableScheme);
             dd.AddDepartment();
         }        

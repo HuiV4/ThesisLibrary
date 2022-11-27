@@ -19,7 +19,7 @@ namespace ThesisLibrary.DataBase
             string tableName = "DegreeCourse";
             string tableScheme = @"CREATE TABLE DegreeCourse(
                                 [DegreeID] INTEGER PRIMARY KEY,                               
-                                [DegreeName] TEXT NOT NULL,
+                                [DegreeName] TEXT NOT NULL UNIQUE,
                                 [DepartmentID] INTEGER,
                                 FOREIGN KEY(DepartmentID) REFERENCES Department(DepartmentID));";
             dbMethods.CreateTable(tableName, tableScheme);

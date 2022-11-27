@@ -21,15 +21,15 @@ namespace ThesisLibrary.DataModel
         public int UserClass { get; set; }
 
         /// <summary>
-        /// 
+        /// This method checks if the entries are not empty and/or if they are correct
         /// </summary>
         /// <param name="firstName"></param>
         /// <param name="surName"></param>
         /// <param name="eMail"></param>
         /// <param name="password"></param>
         /// <param name="userClass"></param>
-        /// <returns></returns>
-        public bool ParameterCheck(string firstName, string surName, string eMail, string password, ComboBox userClass)
+        /// <returns> true or false </returns>
+        public bool ParameterCheck(string firstName, string surName, string eMail, string password, string passwordCheck, ComboBox userClass)
         {
             
             if (firstName == "" || surName == "" || eMail == "" || password.Length < 8 || userClass.SelectedItem == null)
@@ -40,12 +40,24 @@ namespace ThesisLibrary.DataModel
             }
             else if (!eMail.Contains("hs-flensburg.de" ))
             {
-                string msg = "Diese Domäne wird von der Hochschule nicht unterstützt!\nBitte überprüfen sie die Mailadresse";
+                string msg = "Diese Domäne wird von der Hochschule nicht unterstützt!\nBitte überprüfen sie die Mailadresse!";
                 MessageBox.Show(msg, "E-Mail überprüfen", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+            else if (password != passwordCheck)
+            {
+                string msg = "Die eingegebenen Passwörter stimmen nicht überein.\nBitte geben sie identische Passwörter ein!";
+                MessageBox.Show(msg, "Passworteingabe überprüfen", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
             return true;
         }
+        /// <summary>
+        /// This method loads the different type of users. This way there are seperated lists to fill in different classes
+        /// </summary>
+        /// <param name="userType"></param>
+        /// <param name="classID"></param>
+        /// <returns> List<Users> userType </Users> </returns>
         public List<Users> LoadUsers(List<Users> userType, int classID)
         {
             using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
@@ -72,6 +84,10 @@ namespace ThesisLibrary.DataModel
                 }
             }
             return userType;
+        }
+        public override string ToString()
+        {
+            return $"{LastName}, {FirstName}";
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ThesisLibrary.DataModel
                             {
                                 DeptName = dr[0].ToString()
                             };
-                            deptList.Add(dept);
+                            deptList.Add(dept);                            
                         }
                     }
                 }

@@ -26,16 +26,17 @@ namespace ThesisLibrary.DataBase
                 if (!File.Exists(Directory.GetCurrentDirectory() + @"\ThesisDB.sqlite"))
                 {
                     string sql = @"CREATE TABLE Thesis(
-                               [ID] INTEGER PRIMARY KEY AUTOINCREMENT,
+                               [ThesisID] INTEGER PRIMARY KEY AUTOINCREMENT,
                                [Status] INTEGER NOT NULL DEFAULT 0,
                                [Title] TEXT NOT NULL,
-                               [Abstract] TEXT,
-                               [Startdate] DATE,
-                               [SubmissionDate] DATE,
-                               [Keywords] TEXT,
+                               [Abstract] TEXT NOT NULL,
+                               [Startdate] DATE NOT NULL,
+                               [SubmissionDate] DATE NOT NULL,
+                               [Keywords] TEXT NOT NULL,
                                [StudentID] INTEGER,
-                               [LecturerID] INTEGER,
-                               [SecondLecturerID] INTEGER);";
+                               [ProfessorID] INTEGER,
+                               FOREIGN KEY(StudentID) REFERENCES Student(StudentID)
+                               FOREIGN KEY(ProfessorID) REFERENCES Professor(ProfessorID));";
                     using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
                     {
                         con.Open();

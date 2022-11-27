@@ -18,10 +18,8 @@ namespace ThesisLibrary.DataBase
             string tableScheme = @"CREATE TABLE Student(
                                 [StudentID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,                               
                                 [UserID] INTEGER NOT NULL,
-                                [UserClass] INTEGER NOT NULL,
                                 [DegreeName] TEXT NOT NULL,
                                 FOREIGN KEY(DegreeName) REFERENCES DegreeCourse(DegreeName),
-                                FOREIGN KEY(UserClass) REFERENCES Users(UserClass),
                                 FOREIGN KEY(UserID) REFERENCES Users(UserID));";
             dbMethods.CreateTable(tableName, tableScheme);
         }

@@ -30,24 +30,26 @@
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <Label x:Name="userNav" 
-                   Content="Nutzerkennung:"
+                   Content="E-Mailadresse:"
                    FontSize="20" 
                    Margin="-6,0,0,0"/>
-            <TextBox x:Name="username"
+            <TextBox x:Name="userMail"
                      Width="200" 
                      Height="20" 
                      Background="GhostWhite"
-                     Style="{StaticResource roundCornerTBox}"/>
+                     Style="{StaticResource roundCornerTBox}"
+                     TextChanged="OnInputBlockAndFree"/>
             <Label x:Name="userpassNav" 
                    Content="Passwort:" 
-                   FontSize="20" 
+                   FontSize="20"
                    Margin="-6,0,0,0"/>
             <TextBox x:Name="userpass" 
                      HorizontalAlignment="Center"
                      Width="200" 
                      Height="20" 
                      Background="GhostWhite"
-                     Style="{StaticResource roundCornerTBox}"/>
+                     Style="{StaticResource roundCornerTBox}"
+                     TextChanged="OnInputBlockAndFree"/>
             <TextBlock x:Name="passForgotten" 
                        TextDecorations="Underline"
                        MouseLeftButtonUp="OnClickOpenWeb"

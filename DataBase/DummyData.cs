@@ -56,7 +56,7 @@ namespace ThesisLibrary.DataBase
                             cols = line.Split(new char[] { ';' });
 
                             cmd.CommandText = @"insert into Department(DepartmentName)
-                                                values ('" + cols[1] + "')";
+                                                values ('" + cols[1].Trim() + "')";
                             cmd.ExecuteNonQuery();
                         }
                     }

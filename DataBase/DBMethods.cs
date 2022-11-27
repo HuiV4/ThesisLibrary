@@ -13,7 +13,6 @@ namespace ThesisLibrary.DataBase
         SQLiteConnection con;
         SQLiteCommand cmd;
         SQLiteDataReader dr;
-        DummyData dd;
         public void CreateTable(string tableName, string tableScheme)
         {
             try
