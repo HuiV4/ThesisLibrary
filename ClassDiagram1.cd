@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ThesisLibrary.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEIABIAABAAAIAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.217" />
+  </Class>
+  <Class Name="ThesisLibrary.Thesis_MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAggAAAAAAAAAQAAAAAAABA=</HashCode>
+      <FileName>Views\Thesis MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ThesisLibrary.App">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgCAAEAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.DBMethods">
+    <Position X="12.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQABAAAAQAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\DBMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.DegreeCourseTB">
+    <Position X="17.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>DataBase\DegreeCourseTB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.DepartmentTB">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAA=</HashCode>
+      <FileName>DataBase\DepartmentTB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.DummyData">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAgQAAAAAAQAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\DummyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.ProfessorTB">
+    <Position X="14.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\ProfessorTB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.StudentTB">
+    <Position X="16" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\StudentTB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.ThesisDB">
+    <Position X="10.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAQAAEAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\ThesisDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataBase.UserTB">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQAAAAEAEQAAAAIAQAAEACAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DataBase\UserTB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.Admin">
+    <Position X="7.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.DegreeCourse">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEAAAAAQAQEAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\DegreeCourse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.Department">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEAIAAAQAAMAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.Professor">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\Professor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.Student">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.DataModel.Users">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAQEAAAAAQAAECAAACACAAIAAAAAAAg=</HashCode>
+      <FileName>DataModel\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.Enums.EnumBindingSourceExtension">
+    <Position X="16" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Enums\EnumBindingSourceExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThesisLibrary.Views.ModalAddUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAACAAAAAAAAAAACAAAAAGAAAAAAAAAAAABA=</HashCode>
+      <FileName>Views\ModalAddUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ThesisLibrary.Windows.ThesisRequest" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Views\ThesisRequest.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Enum Name="ThesisLibrary.Enums.UserEnum">
+    <Position X="9" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ThesisLibrary.Enums.StatusEnum">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAACQAAAAAAAAAgAAAAAAAABAAAAA=</HashCode>
+      <FileName>Enums\Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ThesisLibrary.Enums.DepartmentEnum">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

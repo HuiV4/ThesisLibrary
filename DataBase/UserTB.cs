@@ -109,6 +109,21 @@ namespace ThesisLibrary.DataBase
                 }
             }
         }
+        public int GetUserClass(string eMail, string password)
+        {
+            using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))
+            {
+                con.Open();
+                using (cmd = new SQLiteCommand(con))
+                {
+                    cmd.CommandText = $@"SELECT UserClass 
+                                 FROM Users 
+                                 WHERE EMail = '{eMail}' AND Password = '{password}'";
+                    object userID = cmd.ExecuteScalar();
+                    return Convert.ToInt32(userID);
+                }
+            }
+        }
         public bool ValidUser(string eMail, string password)
         {
             using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))

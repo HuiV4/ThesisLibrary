@@ -23,6 +23,9 @@ namespace ThesisLibrary
     /// </summary>
     public partial class Thesis_MainWindow : Window
     {
+        Student student;
+        Professor prof;
+        Users currentUser;
         public Thesis_MainWindow(Button sender)
         {
             InitializeComponent();
@@ -37,19 +40,37 @@ namespace ThesisLibrary
             if (sender.Content.Equals("Einloggen"))
             {
                 UserTB userTB = new();
-                int userID = userTB.GetUserID(email.Text.Trim(), password.Text.Trim()); ;
-                if (email.Text == "admin" && password.Text == "admin" || userID == 2)
+                currentUser = new Users();
+                int userID = userTB.GetUserID(email.Text.Trim(), password.Text.Trim());
+                int userClass = userTB.GetUserClass(email.Text.Trim(), password.Text.Trim());
+                
+
+                if (email.Text == "admin" && password.Text == "admin" || userClass == 2)
                 {
                     editMenu.IsEnabled = true;
                     adminMenu.IsEnabled = true;
                 }
-                else if (userID == 0)
+                else if (userClass == 0)
                 {
+                    student = new Student();
+                    var students = student.LoadStudents();
+                    foreach (var student in students)
+                    {
+                        if (student.UserID == userID)
+                            currentUser = student;
+                    }
                     adminMenu.IsEnabled = false;
                     requestLookUp.IsEnabled = false;
                 }
-                else if (userID == 1)
+                else if (userClass == 1)
                 {
+                    prof = new Professor();
+                    var professors = prof.LoadProfessors();
+                    foreach (var prof in professors)
+                    {
+                        if (prof.UserID == userID)
+                            currentUser = prof;
+                    }
                     adminMenu.IsEnabled = false;
                     addRequest.IsEnabled = false;
                 }    

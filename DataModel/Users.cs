@@ -14,6 +14,7 @@ namespace ThesisLibrary.DataModel
         SQLiteConnection con;
         SQLiteCommand cmd;
         SQLiteDataReader dr;
+        public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EMail { get; set; }
@@ -72,6 +73,7 @@ namespace ThesisLibrary.DataModel
                         {
                             Users users = new()
                             {
+                                UserID = int.Parse(dr[0].ToString()),
                                 FirstName = dr[1].ToString(),
                                 LastName = dr[2].ToString(),
                                 EMail = dr[3].ToString(),
