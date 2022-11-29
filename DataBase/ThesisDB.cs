@@ -33,6 +33,7 @@ namespace ThesisLibrary.DataBase
                                [Startdate] DATE NOT NULL,
                                [SubmissionDate] DATE NOT NULL,
                                [Keywords] TEXT NOT NULL,
+                               [Privacy] INTEGER NOT NULL,
                                [StudentID] INTEGER,
                                [ProfessorID] INTEGER,
                                FOREIGN KEY(StudentID) REFERENCES Student(StudentID)

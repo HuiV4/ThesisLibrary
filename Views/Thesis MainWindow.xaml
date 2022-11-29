@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThesisLibrary"
         mc:Ignorable="d"
-        Title="ThesisPortal" Height="450" Width="800">
-    <DockPanel LastChildFill="False">
+        Title="ThesisPortal" Height="450" Width="800"
+        MaxHeight="450" MaxWidth="800">
+    <DockPanel x:Name="motherDock"
+               LastChildFill="False">
         <StatusBar DockPanel.Dock="Bottom"
                    Height="20"
                    Background="AliceBlue">
@@ -36,7 +38,8 @@
                                   Header="Arbeit anlegen"
                                   Click="OnCLickAddThesis"/>
                         <MenuItem x:Name="requestLookUp"
-                                  Header="Anfragen einsehen"/>
+                                  Header="Anfragen einsehen"
+                                  Click="OnClickLookUp"/>
                     </MenuItem>
                     <MenuItem x:Name="adminMenu"
                               Header="Verwalten">
@@ -66,11 +69,14 @@
                 </WrapPanel>
             </Button>
         </Grid>
-        <ListBox x:Name="Test" 
+        <ListBox x:Name="thesisListBox" 
                  DockPanel.Dock="Left" 
                  Width="200" 
                  Background="WhiteSmoke"
-                 Margin="10,10,0,0">
+                 Margin="10,10,0,0"
+                 ItemsSource="{Binding}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="OnSelectChangeValues">
             <ListBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" 
@@ -80,21 +86,25 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="{Binding Path=FirstName}" FontWeight="Bold"/>
-                        <TextBlock DockPanel.Dock="Bottom" Text="{Binding Path=LastName}"/>
+                        <TextBlock DockPanel.Dock="Top" 
+                                   Text="{Binding Path=Title}" 
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"/>
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel DockPanel.Dock="Top">
-            <TextBlock Text="Random Bachelorthesis"
+            <TextBlock x:Name="dynamicTitle"
+                       Text="{Binding Path=Title}"
                        HorizontalAlignment="Center"
                        FontSize="26"
                        FontWeight="SemiBold"
                        TextWrapping="Wrap"
                        TextTrimming="CharacterEllipsis"
-                       ToolTip="Hier steht dein Binding"/>
-            <WrapPanel Margin="7,5,7,0">
+                       ToolTip="{Binding Path=Title}"
+                       Margin="-15,0,0,0"/>
+            <WrapPanel Margin="23,5,7,0">
                 <ComboBox x:Name="subject"
                           IsEditable="True"
                           IsReadOnly="True"
@@ -107,19 +117,45 @@
                           IsEditable="True"
                           IsReadOnly="True"
                           Text="--Dozent--"/>
-
             </WrapPanel>
-            <!--Fill here with Databindings-->
-            <TextBlock/>
-            <!--Fill here with Databindings-->
-            <TextBlock/>
-            <!--Fill here with Databindings-->
-            <TextBlock/>
-            <!--Fill here with Databindings-->
-            <TextBlock/>
-            <!--Fill here with Databindings-->
-            <TextBlock/>
-            <!--Fill here with Databindings-->
+            <DockPanel x:Name="dynamicDock"
+                       LastChildFill="False"
+                       Margin="20,0,0,0"
+                       DataContext="{Binding}">
+                <StackPanel DockPanel.Dock="Left"
+                            Margin="0,10,0,0">
+                    <Label Content="Betreuender Professor:"
+                           FontWeight="SemiBold"/>
+                    <TextBlock Margin="5,0,0,0">
+                        <Run Text="{Binding Path=ProfessorLastName}"/>
+                        <Run Text=","/>
+                        <Run Text="{Binding Path=ProfessorFirstName}"/>
+                    </TextBlock>
+                    <Label Content="Fachbereich"
+                           FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding Path=DepartmentName}"
+                               Margin="5,0,0,0"/>
+                    <Label Content="Studiengang"
+                           FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding Path=DegreeName}"
+                               Margin="5,0,0,0"/>
+                    <!--Fill here with Databindings-->
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Top"
+                            Margin="50,10,0,0">
+                    <Label Content="Kurzbeschreibung"
+                           FontWeight="Bold"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Auto"
+                                  Width="Auto"
+                                  MaxHeight="250"
+                                  Margin="5,0,0,0">
+                        <TextBlock Text="{Binding Path=Abstract}"
+                               TextWrapping="Wrap"
+                                   ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </DockPanel>
         </StackPanel>
     </DockPanel>
 </Window>

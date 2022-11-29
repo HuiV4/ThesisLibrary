@@ -32,6 +32,11 @@ namespace ThesisLibrary
 
             editMenu.IsEnabled = false;
             adminMenu.IsEnabled = false;
+
+            Thesis thesis = new();
+            if (thesisListBox == null)
+                return;
+            this.DataContext = thesis.LoadThesisList();
         }
         public Thesis_MainWindow(Button sender, TextBox email, TextBox password)
         {           
@@ -75,12 +80,12 @@ namespace ThesisLibrary
                     addRequest.IsEnabled = false;
                 }    
             }
-            Admin admin = new();
-            if (Test == null)
-                return;
-            Test.ItemsSource = admin.LoadAdmins();
-        }
 
+            Thesis thesis = new();
+            if (thesisListBox == null)
+                return;
+            this.DataContext = thesis.LoadThesisList();
+        }
         private void OnClickClose(object sender, RoutedEventArgs e) => Close();
         private void OnCLickLogout(object sender, RoutedEventArgs e)
         {
@@ -90,14 +95,27 @@ namespace ThesisLibrary
         }
         private void OnCLickAddThesis(object sender, RoutedEventArgs e)
         {
-            ThesisRequest tr = new();
+            ThesisRequest tr = new(currentUser);
             tr.ShowDialog();
         }
-
         private void OnClickAddUser(object sender, RoutedEventArgs e)
         {
             ModalAddUser mad = new();
             mad.ShowDialog();
+        }
+        private void OnSelectChangeValues(object sender, SelectionChangedEventArgs e)
+        {
+            dynamicDock.DataContext = (Thesis)thesisListBox.SelectedItem;
+            dynamicTitle.DataContext = (Thesis)thesisListBox.SelectedItem;
+            //Thesis thesis = new();
+            //thesis = null;
+            //thesis = (Thesis)thesisListBox.SelectedItem;
+            //this.DataContext = thesis;
+        }
+        private void OnClickLookUp(object sender, RoutedEventArgs e)
+        {
+            LookUpThesisReq lutr = new(currentUser);
+            lutr.ShowDialog();
         }
     }
 }

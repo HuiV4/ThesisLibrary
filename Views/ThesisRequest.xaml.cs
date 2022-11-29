@@ -23,7 +23,7 @@ namespace ThesisLibrary.Windows
         Department dept;
         DegreeCourse degree;
         Professor prof;
-        public ThesisRequest()
+        public ThesisRequest(Users currentUser)
         {
             InitializeComponent();
             degree = new DegreeCourse();
@@ -34,6 +34,13 @@ namespace ThesisLibrary.Windows
             profBox.ItemsSource = prof.LoadProfessors();
             courseBox.ItemsSource = degreeList;
             deptBox.ItemsSource = deptList;
+            generalInputs.DataContext= currentUser;
+        }
+        private void OnClickClose(object sender, RoutedEventArgs e) => this.Close();
+
+        private void OnClickSubmit(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
