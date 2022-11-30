@@ -76,13 +76,8 @@
                  Margin="10,10,0,0"
                  ItemsSource="{Binding}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                 SelectionChanged="OnSelectChangeValues">
-            <ListBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" 
-                            Value="10"/>
-                </Style>
-            </ListBox.Resources>
+                 SelectionChanged="OnSelectChangeValues"
+                 Style="{StaticResource roundCornerLBox}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>

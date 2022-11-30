@@ -21,5 +21,12 @@
                 </Style>
             </Style.Resources>
         </Style>
+        <Style x:Key="roundCornerLBox" TargetType="ListBox">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>

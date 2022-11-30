@@ -112,7 +112,7 @@ namespace ThesisLibrary
         }
         private void OnClickLookUp(object sender, RoutedEventArgs e)
         {
-            LookUpThesisReq lutr = new(currentUser);
+            LookUpThesisReq lutr = new((Professor)currentUser);
             lutr.ShowDialog();
         }
     }

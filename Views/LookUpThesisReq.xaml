@@ -4,9 +4,118 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThesisLibrary.Views"
+        xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
-        Title="LookUpThesisReq" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="LookUpThesisReq" Height="500" Width="800">
+    <DockPanel LastChildFill="False">
+        <StatusBar DockPanel.Dock="Bottom"
+                   Height="20"
+                   Background="AliceBlue">
+        </StatusBar>
+        <ListBox x:Name="thesisListBox" 
+                 DockPanel.Dock="Left" 
+                 Width="200" 
+                 Background="WhiteSmoke"
+                 Margin="10,10,0,0"
+                 ItemsSource="{Binding}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="OnSelectChangeValues"
+                 Style="{StaticResource roundCornerLBox}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" 
+                                   Text="{Binding Path=Title}" 
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"/>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock Text="Offene Anfragen"
+                      HorizontalAlignment="Center"
+                       FontSize="26"
+                       FontWeight="SemiBold"
+                       Margin="0,10,0,0"/>
+            <DockPanel LastChildFill="False">
+                <StackPanel DockPanel.Dock="Left"
+                            Margin="10">
+                    <StackPanel x:Name="studentStack">
+                        <Label Content="Anfragender Student:"
+                               FontWeight="SemiBold"/>
+                        <TextBlock x:Name="requestStudent"
+                                   Margin="5,0,0,0">
+                            <Run Text="{Binding Path=LastName}"/>
+                            <Run Text=","/>
+                            <Run Text="{Binding Path=FirstName}"/>
+                        </TextBlock>
+                        <Label Content="Studienfach:"
+                               FontWeight="SemiBold"/>
+                        <TextBlock x:Name="studentCourse"
+                                   Margin="5,0,0,0"
+                                   Text="{Binding Path=DegreeName}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="thesisSatck">
+                        <Label Content="Aktueller Bearbeitungsstatus"
+                           FontWeight="SemiBold"/>
+                        <TextBlock x:Name="currentStatus"
+                                   Margin="5,0,0,0"
+                                   Text="{Binding Path=Status}"/>
+                        <Label Content="Kurzbeschreibung"
+                           FontWeight="Bold"/>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Auto"
+                                  Width="Auto"
+                                  MaxHeight="250"
+                                  Margin="5,0,0,0">
+                            <TextBlock Text="{Binding Path=Abstract}"
+                                   TextWrapping="Wrap"
+                                   Width="250"
+                                   ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Left"
+                            Margin="10">
+                    <Label Content="Startdatum"
+                           FontWeight="SemiBold"
+                           Margin="-5,0,0,0"/>
+                    <DatePicker x:Name="startDate"
+                                LostFocus="OnSelectActivateAccept"/>
+                    <Label Content="Abgabedatum"
+                           FontWeight="SemiBold"
+                           Margin="-5,0,0,0"/>
+                    <DatePicker x:Name="submissionDate"
+                                LostFocus="OnSelectActivateAccept"/>
+                    <Label Content="Bearbeitungsstatus"
+                           FontWeight="SemiBold"
+                           Margin="-5,0,0,0"/>
+                    <ComboBox x:Name="statusBox"
+                              ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:StatusEnum}}}"
+                              LostFocus="OnSelectActivateAccept"/>
+                    <TextBlock x:Name="hintBox">
+                        <Run Text="Bitte fülllen sie"/>
+                        <LineBreak/>
+                        <Run Text="alle Felder aus!"/>
+                    </TextBlock>
+                    <StackPanel Margin="0,100,0,0">
+                        <Button x:Name="acceptButton"
+                                Content="Aktzeptieren"
+                                Style="{StaticResource roundCornerButton}"
+                                Margin="0,0,0,10"
+                                Click="OnClickAccept"
+                                IsEnabled="False"/>
+                        <Button Content="Ablehnen"
+                                Style="{StaticResource roundCornerButton}"/>
+                        <Button Content="Abbrechen"
+                                Style="{StaticResource roundCornerButton}"
+                                Margin="0,10,0,0"
+                                Click="OnClickClose"/>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </StackPanel>
+
+    </DockPanel>
 </Window>

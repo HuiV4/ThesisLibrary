@@ -57,6 +57,10 @@ namespace ThesisLibrary.Windows
 
             ThesisDB tDB = new ();
             tDB.AddThesisData(thesisTitel.Text.Trim(), thesisAbstract.Text.Trim(), keywords, currentUser.StudentID, prof.ProfessorID, typeOfThesisBox.SelectedIndex, privacy);
+
+            MessageBox.Show("Anfrage wurde erfolgreich gespeichert");
+
+            this.Close();
         }
 
         private void OnChangeSetDept(object sender, SelectionChangedEventArgs e)

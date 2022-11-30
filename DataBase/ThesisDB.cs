@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ThesisLibrary.DataModel;
 
 namespace ThesisLibrary.DataBase
 {
@@ -78,6 +79,26 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
-
+        public void UpdateThesisData(int thesisID, string selectedStartDate, string selectedSubmitDate, int status)
+        {
+            try
+            {
+                using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))
+                {
+                    con.Open();
+                    using (cmd = new SQLiteCommand(con))
+                    {
+                        cmd.CommandText = @$"UPDATE Thesis
+                                            SET Startdate = '{selectedStartDate}', SubmissionDate = '{selectedSubmitDate}', Status = {status}
+                                            WHERE Thesis.ID = '{thesisID}'";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
