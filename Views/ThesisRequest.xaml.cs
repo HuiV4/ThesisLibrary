@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThesisLibrary.DataBase;
 using ThesisLibrary.DataModel;
 
 namespace ThesisLibrary.Windows
@@ -23,9 +24,11 @@ namespace ThesisLibrary.Windows
         Department dept;
         DegreeCourse degree;
         Professor prof;
-        public ThesisRequest(Users currentUser)
+        Student currentUser;
+        public ThesisRequest(Student currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
             degree = new DegreeCourse();
             List<DegreeCourse> degreeList = degree.LoadDegreeCourses();
             dept = new Department();
@@ -35,12 +38,36 @@ namespace ThesisLibrary.Windows
             courseBox.ItemsSource = degreeList;
             deptBox.ItemsSource = deptList;
             generalInputs.DataContext= currentUser;
+            foreach (var item in courseBox.Items)
+            {
+                if(currentUser.DegreeName == item.ToString())
+                    courseBox.SelectedItem = item;
+                continue;
+            }
         }
         private void OnClickClose(object sender, RoutedEventArgs e) => this.Close();
 
         private void OnClickSubmit(object sender, RoutedEventArgs e)
         {
+            int privacy = 0;
+            string[] keywords = { keyword1.Text.Trim(), keyword2.Text.Trim(), keyword3.Text.Trim(), keyword4.Text.Trim(), keyword5.Text.Trim() };
+            Professor prof = (Professor)profBox.SelectedItem;
+            if (privacyCheck.IsChecked == true)
+                privacy = 1;
 
+            ThesisDB tDB = new ();
+            tDB.AddThesisData(thesisTitel.Text.Trim(), thesisAbstract.Text.Trim(), keywords, currentUser.StudentID, prof.ProfessorID, typeOfThesisBox.SelectedIndex, privacy);
+        }
+
+        private void OnChangeSetDept(object sender, SelectionChangedEventArgs e)
+        {
+            Professor selectedProf = (Professor)profBox.SelectedItem;
+            foreach (var item in deptBox.Items)
+            {
+                if (selectedProf.DepartmentName == item.ToString())
+                    deptBox.SelectedItem = item;
+                continue;
+            }
         }
     }
 }

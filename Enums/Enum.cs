@@ -12,6 +12,11 @@ namespace ThesisLibrary.Enums
         Professor,
         Admin
     }
+    public enum ThesisTypeEnum
+    {
+        Bachelor,
+        Master
+    }
     public enum StatusEnum
     {
         Request,

@@ -30,6 +30,7 @@ namespace ThesisLibrary.DataModel
         public int StudentID { get; set; }
         public string DegreeName { get; set; }
         public int Privacy { get; set; }
+        public int ThesisType { get; set; }
 
 
         public List<Thesis> LoadThesisList()
@@ -41,8 +42,8 @@ namespace ThesisLibrary.DataModel
 
                 con.Open();
                 string selectSQL = $@"SELECT t.ID, t.Status, t.Title, t.Abstract, t.Startdate,
-                                      t.SubmissionDate, t.Keywords, t.Privacy, u.Firstname, 
-                                      u.Surname, p.ProfessorID, p.DepartmentName,
+                                      t.SubmissionDate, t.Keywords, t.Privacy, t.ThesisType,
+                                      u.Firstname, u.Surname, p.ProfessorID, p.DepartmentName,
                                       s.StudentID, s.DegreeName
                                       FROM Thesis t
                                       JOIN Professor p
@@ -75,12 +76,13 @@ namespace ThesisLibrary.DataModel
                                 SubmissonDate = DateTime.Parse(dr[5].ToString()),
                                 Keywords = keywordArray,
                                 Privacy = int.Parse(dr[7].ToString()),
-                                ProfessorFirstName = dr[8].ToString(),
-                                ProfessorLastName = dr[9].ToString(),
-                                ProfessorID = int.Parse(dr[10].ToString()),
-                                DepartmentName= dr[11].ToString(),
-                                StudentID = int.Parse(dr[12].ToString()),
-                                DegreeName= dr[13].ToString()                                
+                                ThesisType= int.Parse(dr[8].ToString()),
+                                ProfessorFirstName = dr[9].ToString(),
+                                ProfessorLastName = dr[10].ToString(),
+                                ProfessorID = int.Parse(dr[11].ToString()),
+                                DepartmentName= dr[12].ToString(),
+                                StudentID = int.Parse(dr[13].ToString()),
+                                DegreeName= dr[14].ToString()                                
                             };
                             thesisList.Add(thesis);                            
                         }

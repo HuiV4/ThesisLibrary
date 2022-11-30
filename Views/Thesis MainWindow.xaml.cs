@@ -63,6 +63,7 @@ namespace ThesisLibrary
                     {
                         if (student.UserID == userID)
                             currentUser = student;
+                        continue;
                     }
                     adminMenu.IsEnabled = false;
                     requestLookUp.IsEnabled = false;
@@ -75,6 +76,7 @@ namespace ThesisLibrary
                     {
                         if (prof.UserID == userID)
                             currentUser = prof;
+                        continue;
                     }
                     adminMenu.IsEnabled = false;
                     addRequest.IsEnabled = false;
@@ -95,7 +97,7 @@ namespace ThesisLibrary
         }
         private void OnCLickAddThesis(object sender, RoutedEventArgs e)
         {
-            ThesisRequest tr = new(currentUser);
+            ThesisRequest tr = new((Student)currentUser);
             tr.ShowDialog();
         }
         private void OnClickAddUser(object sender, RoutedEventArgs e)
@@ -107,10 +109,6 @@ namespace ThesisLibrary
         {
             dynamicDock.DataContext = (Thesis)thesisListBox.SelectedItem;
             dynamicTitle.DataContext = (Thesis)thesisListBox.SelectedItem;
-            //Thesis thesis = new();
-            //thesis = null;
-            //thesis = (Thesis)thesisListBox.SelectedItem;
-            //this.DataContext = thesis;
         }
         private void OnClickLookUp(object sender, RoutedEventArgs e)
         {
