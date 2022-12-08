@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ThesisLibrary.DataBase
 {
@@ -12,7 +8,6 @@ namespace ThesisLibrary.DataBase
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
-        SQLiteDataReader dr;
         public void AddDegreeCourses()
         {
             using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))

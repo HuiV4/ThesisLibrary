@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ThesisLibrary.DataBase;
 using ThesisLibrary.DataModel;
 using ThesisLibrary.Views;
@@ -50,9 +39,9 @@ namespace ThesisLibrary
                 int userClass = userTB.GetUserClass(email.Text.Trim(), password.Text.Trim());
                 
 
-                if (email.Text == "admin" && password.Text == "admin" || userClass == 2)
+                if (userClass == 2)
                 {
-                    editMenu.IsEnabled = true;
+                    editMenu.IsEnabled = false;
                     adminMenu.IsEnabled = true;
                 }
                 else if (userClass == 0)

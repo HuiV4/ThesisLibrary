@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Windows.Interop;
 using ThesisLibrary.DataBase;
 
 namespace ThesisLibrary
@@ -36,7 +24,7 @@ namespace ThesisLibrary
             {
                 userTB = new UserTB();
                 bool exists = userTB.ValidUser(userMail.Text.Trim(), userpass.Text.Trim());
-                if (exists == true || userMail.Text == "admin" && userpass.Text == "admin")
+                if (exists == true)
                 {
                     thesisMain = new Thesis_MainWindow((Button)sender, userMail, userpass);
                     thesisMain.Show();

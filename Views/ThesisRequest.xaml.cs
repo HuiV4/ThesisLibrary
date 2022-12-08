@@ -49,18 +49,23 @@ namespace ThesisLibrary.Windows
 
         private void OnClickSubmit(object sender, RoutedEventArgs e)
         {
-            int privacy = 0;
-            string[] keywords = { keyword1.Text.Trim(), keyword2.Text.Trim(), keyword3.Text.Trim(), keyword4.Text.Trim(), keyword5.Text.Trim() };
-            Professor prof = (Professor)profBox.SelectedItem;
-            if (privacyCheck.IsChecked == true)
-                privacy = 1;
+            try
+            {
+                int privacy = 0;
+                string[] keywords = { keyword1.Text.Trim(), keyword2.Text.Trim(), keyword3.Text.Trim(), keyword4.Text.Trim(), keyword5.Text.Trim() };
+                Professor prof = (Professor)profBox.SelectedItem;
+                if (privacyCheck.IsChecked == true)
+                    privacy = 1;
 
-            ThesisDB tDB = new ();
-            tDB.AddThesisData(thesisTitel.Text.Trim(), thesisAbstract.Text.Trim(), keywords, currentUser.StudentID, prof.ProfessorID, typeOfThesisBox.SelectedIndex, privacy);
+                ThesisDB tDB = new();
+                tDB.AddThesisData(thesisTitel.Text.Trim(), thesisAbstract.Text.Trim(), keywords, currentUser.StudentID, prof.ProfessorID, typeOfThesisBox.SelectedIndex, privacy);
 
-            MessageBox.Show("Anfrage wurde erfolgreich gespeichert");
+                MessageBox.Show("Anfrage wurde erfolgreich gespeichert");
 
-            this.Close();
+                this.Close();
+            }
+            catch (NullReferenceException ex)
+            { MessageBox.Show($"Bitte füllen sie alle Felder aus!\n{ex.Message}"); }
         }
 
         private void OnChangeSetDept(object sender, SelectionChangedEventArgs e)

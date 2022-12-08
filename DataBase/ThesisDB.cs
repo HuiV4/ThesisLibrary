@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using ThesisLibrary.DataModel;
 
 namespace ThesisLibrary.DataBase
 {
@@ -14,7 +9,6 @@ namespace ThesisLibrary.DataBase
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
-        SQLiteDataReader dr;
 
         /// <summary>
         /// Diese Methode erstellt die Datenbank, wenn noch keine vorhanden ist.

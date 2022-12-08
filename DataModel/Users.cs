@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,7 +28,6 @@ namespace ThesisLibrary.DataModel
         /// <returns> true or false </returns>
         public bool ParameterCheck(string firstName, string surName, string eMail, string password, string passwordCheck, ComboBox userClass)
         {
-
             if (firstName == "" || surName == "" || eMail == "" || password.Length < 8 || userClass.SelectedItem == null)
             {
                 string msg = "Sie haben nicht alle Felder ausgefüllt!\nBitte beachten sie, dass Passwörter mind. 8 Zeichen lang sein müssen!";
