@@ -6,6 +6,10 @@ namespace ThesisLibrary.DataModel
     {
         public int StudentID { get; set; }
         public string DegreeName { get; set; }
+        /// <summary>
+        /// Loads the list of all students
+        /// </summary>
+        /// <returns></returns>
         public List<Users> LoadStudents()
         {
             List<Users> students = new List<Users>();

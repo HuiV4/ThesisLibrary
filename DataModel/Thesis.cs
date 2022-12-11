@@ -27,7 +27,10 @@ namespace ThesisLibrary.DataModel
         public int Privacy { get; set; }
         public int ThesisType { get; set; }
 
-
+        /// <summary>
+        /// Loads all theses that are avaiable in the thesis table of the database
+        /// </summary>
+        /// <returns>A list of all theses</returns>
         public List<Thesis> LoadThesisList()
         {
             using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))

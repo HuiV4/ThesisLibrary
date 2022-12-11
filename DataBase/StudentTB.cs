@@ -3,7 +3,9 @@
     public class StudentTB
     {
         DBMethods dbMethods;
-
+        /// <summary>
+        /// This methode is called on startup if the database does not exist
+        /// </summary>
         public void CreateStudent()
         {
             dbMethods = new();

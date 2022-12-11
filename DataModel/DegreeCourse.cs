@@ -9,6 +9,10 @@ namespace ThesisLibrary.DataModel
         SQLiteCommand cmd;
         SQLiteDataReader dr;
         public string DegreeName { get; set; }
+        /// <summary>
+        /// Loads all DegreeCourses from the database and initializes them
+        /// </summary>
+        /// <returns></returns>
         public List<DegreeCourse> LoadDegreeCourses()
         {
             List<DegreeCourse> degreeList = new();

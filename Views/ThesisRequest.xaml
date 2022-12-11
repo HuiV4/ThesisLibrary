@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ThesisLibrary.Windows"
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
-        Title="ThesisRequest" Height="530" Width="600">
+        Title="Anfrage stellen" Height="530" Width="600">
     <DockPanel LastChildFill="False"
                HorizontalAlignment="Center">
         <TextBlock DockPanel.Dock="Top"

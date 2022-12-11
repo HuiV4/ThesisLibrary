@@ -6,6 +6,10 @@ namespace ThesisLibrary.DataModel
     {
         public int ProfessorID { get; set; }
         public string DepartmentName { get; set; }
+        /// <summary>
+        /// Loads the list of all professors
+        /// </summary>
+        /// <returns></returns>
         public List<Users> LoadProfessors()
         {
             List<Users> professors = new();

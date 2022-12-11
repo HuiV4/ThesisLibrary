@@ -4,6 +4,9 @@
     {
         DBMethods dbMethods;
         DummyData dd;
+        /// <summary>
+        /// This methode is called on startup if the database does not exist
+        /// </summary>
         public void CreateDept()
         {
             dbMethods = new DBMethods();

@@ -11,8 +11,7 @@ namespace ThesisLibrary.DataBase
         SQLiteCommand cmd;
 
         /// <summary>
-        /// Diese Methode erstellt die Datenbank, wenn noch keine vorhanden ist.
-        /// Wenn die DB bereit vorhanden ist, wird eine Verbindung hergestellt
+        /// This methode is called on startup if the database does not exist
         /// </summary>
         public void CreateDatabaseAndTable()
         {
@@ -48,6 +47,17 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Adds an instance of thesis into the thesis table, when the student starts a request!
+        /// </summary>
+        /// <param name="thesisTitle"></param>
+        /// <param name="thesisAbstract"></param>
+        /// <param name="keywords"></param>
+        /// <param name="studentID"></param>
+        /// <param name="professorID"></param>
+        /// <param name="thesisType">Indicates if thesis is bachelor or master thesis</param>
+        /// <param name="privacy">Indicates if the  data is allowed to be downloaded</param>
+        /// <param name="status">Indicates the current status of the thesis (see Enums)</param>
         public void AddThesisData(string thesisTitle, string thesisAbstract, string[] keywords, int studentID, int professorID, int thesisType, int privacy, int status = 0)
         {
             string keywordsString = "";
@@ -73,6 +83,13 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Data will be updated or will be filled in if missing. Happens from the ThesisLookUpReq window 
+        /// </summary>
+        /// <param name="thesisID"></param>
+        /// <param name="selectedStartDate"></param>
+        /// <param name="selectedSubmitDate"></param>
+        /// <param name="status">Indicates the current status of the thesis (see Enums)</param>
         public void UpdateThesisData(int thesisID, string selectedStartDate, string selectedSubmitDate, int status)
         {
             try

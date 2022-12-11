@@ -13,8 +13,7 @@ namespace ThesisLibrary.DataBase
         DBMethods dbMethods;
 
         /// <summary>
-        /// Diese Methode erstellt die Datenbank, wenn noch keine vorhanden ist.
-        /// Wenn die DB bereit vorhanden ist, wird eine Verbindung hergestellt
+        /// This methode is called on startup if the database does not exist
         /// </summary>
         public void CreateUsers()
         {
@@ -29,6 +28,14 @@ namespace ThesisLibrary.DataBase
                                 [UserClass] INTEGER);";
             dbMethods.CreateTable(tableName, tableScheme);
         }
+        /// <summary>
+        /// An instance of user will be added into the user table
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="surName"></param>
+        /// <param name="eMail"></param>
+        /// <param name="password"></param>
+        /// <param name="userClass"></param>
         public void AddUserData(string firstName, string surName, string eMail, string password, int userClass)
         {
             try
@@ -49,6 +56,11 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Foreach added user, an corresponding  Professor will be added, if the UserType equals 1
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="departmentName"></param>
         public void AddProfessor(int userID, string departmentName)
         {
             try
@@ -69,6 +81,11 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Foreach added user, an corresponding  Student will be added, if the UserType equals 0
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="departmentName"></param>
         public void AddStudent(int userID, string degreeName)
         {
             try
@@ -89,6 +106,12 @@ namespace ThesisLibrary.DataBase
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// On Login the UserID will be fetched, so that the current user can be authenticated
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public int GetUserID(string eMail, string password)
         {
             using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))
@@ -104,6 +127,12 @@ namespace ThesisLibrary.DataBase
                 }
             }
         }
+        /// <summary>
+        /// This methode gets the UserClass of the current user, to give permissions that are intendet for the UserClass
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public int GetUserClass(string eMail, string password)
         {
             using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))
@@ -119,6 +148,12 @@ namespace ThesisLibrary.DataBase
                 }
             }
         }
+        /// <summary>
+        /// Checks if the User logging in is really existing
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool ValidUser(string eMail, string password)
         {
             using (con = new SQLiteConnection($@"Data Source=ThesisDB.sqlite;Version=3;"))

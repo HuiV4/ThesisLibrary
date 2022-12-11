@@ -5,11 +5,17 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\Pictures\ThesisPortalIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\HS Flensburg Logo.png" />
     <None Remove="Resources\Pictures\logout.png" />
+    <None Remove="Resources\Pictures\ThesisPortalIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Pictures\ThesisPortalIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,10 +25,7 @@
     <Resource Include="Resources\Pictures\logout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
+    <Resource Include="Resources\Pictures\ThesisPortalIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>

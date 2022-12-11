@@ -9,6 +9,10 @@ namespace ThesisLibrary.DataModel
         SQLiteCommand cmd;
         SQLiteDataReader dr;
         public string DeptName { get; set; }
+        /// <summary>
+        /// Loads all Departments from the database and initializes them
+        /// </summary>
+        /// <returns></returns>
         public List<Department> LoadDepartments()
         {
             List<Department> deptList = new();

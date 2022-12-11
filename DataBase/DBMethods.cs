@@ -8,6 +8,11 @@ namespace ThesisLibrary.DataBase
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
+        /// <summary>
+        /// Each table creation uses this methode, if database does not exist
+        /// </summary>
+        /// <param name="tableName">The name which the table will get on creation</param>
+        /// <param name="tableScheme">The SQL command for the parameters and constraints</param>
         public void CreateTable(string tableName, string tableScheme)
         {
             try

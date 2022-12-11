@@ -8,6 +8,9 @@ namespace ThesisLibrary.DataBase
     {
         SQLiteConnection con;
         SQLiteCommand cmd;
+        /// <summary>
+        /// This methode will fill in data into the DegreeCourse table
+        /// </summary>
         public void AddDegreeCourses()
         {
             using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
@@ -33,6 +36,10 @@ namespace ThesisLibrary.DataBase
                 }
             }
         }
+        /// <summary>
+        /// This methode will fill in data the Department table
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
         public void AddDepartment()
         {
             using (con = new SQLiteConnection("Data Source=ThesisDB.sqlite;Version=3;"))
