@@ -37,7 +37,12 @@ namespace ThesisLibrary.Views
 
             Thesis thesisDateInfo = (Thesis)thesisListBox.SelectedItem;
 
-            if (thesisDateInfo.Status == 0)
+            if (thesisDateInfo == null)
+            {
+                MessageBox.Show("Keine Anfragen für sie vorhanden!");
+                return;
+            }
+            else if (thesisDateInfo.Status == 0)
             {
                 startDate = default;
                 submissionDate = default;
@@ -95,6 +100,7 @@ namespace ThesisLibrary.Views
 
             ThesisDB tDB= new();
             tDB.UpdateThesisData(thesisID, formattedStart, formattedSubmit, status);
+            MessageBox.Show("Die Werte wurden geändert");
         }
         /// <summary>
         /// Thesis cannot be accepted, when fields are empty
