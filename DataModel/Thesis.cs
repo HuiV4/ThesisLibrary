@@ -15,8 +15,8 @@ namespace ThesisLibrary.DataModel
         public int Status { get; set; }
         public string Title { get; set; }
         public string Abstract { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime SubmissonDate { get; set; }
+        public string StartDate { get; set; }
+        public string SubmissonDate { get; set; }
         public string[] Keywords { get; set; }
         public string ProfessorFirstName { get; set; }
         public string ProfessorLastName { get; set; }
@@ -64,13 +64,15 @@ namespace ThesisLibrary.DataModel
                             }
                             string[] keywordArray = list.ToArray();
 
-                            
+
                             Thesis thesis = new Thesis()
                             {
                                 ThesisID = int.Parse(dr[0].ToString()),
                                 Status = int.Parse(dr[1].ToString()),
                                 Title = dr[2].ToString(),
                                 Abstract = dr[3].ToString(),
+                                StartDate = dr[4].ToString(),
+                                SubmissonDate = dr[5].ToString(),
                                 Keywords = keywordArray,
                                 Privacy = int.Parse(dr[7].ToString()),
                                 ThesisType = int.Parse(dr[8].ToString()),

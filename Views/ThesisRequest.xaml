@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ThesisLibrary.Windows"
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
-        Title="Anfrage stellen" Height="530" Width="600">
+        Title="Anfrage stellen" Height="530" Width="600"
+        MaxHeight="530" MaxWidth="600">
     <DockPanel LastChildFill="False"
                HorizontalAlignment="Center">
         <TextBlock DockPanel.Dock="Top"
@@ -33,31 +34,31 @@
                     Margin="10"
                     Width="214">
             <Label Content="Titel der Arbeit:"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <TextBox x:Name="thesisTitel"
                      Style="{StaticResource roundCornerTBox}"
-                     TextWrapping="Wrap"/>
+                     TextWrapping="NoWrap"/>
             <Label Content="Welchen Professor wollen sie anfragen?"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <ComboBox x:Name="profBox"
                       SelectionChanged="OnChangeSetDept"/>
             <Label Content="Fachbereich auswählen:"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <ComboBox x:Name="deptBox"
                       IsEnabled="False"/>
             <Label Content="Welcher Studiengang?"
-                   Margin="-5,0,0,0"                   />
+                   Style="{StaticResource parallelLabel}"/>
             <ComboBox x:Name="courseBox"
                       IsEnabled="False"/>
             <Label Content="Art der Abschlussarbeit?"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <ComboBox x:Name="typeOfThesisBox"
                       ItemsSource="{Binding Source={enums:EnumBindingSourceExtension {x:Type enums:ThesisTypeEnum}}}"/>
             <Label Content="Informationen zu Ihnen:"
                        Margin="-5,20,0,0"
                        FontWeight="Bold"/>
             <Label Content="Name:"
-                   Margin="-5,0,0,0"
+                   Style="{StaticResource parallelLabel}"
                    FontWeight="SemiBold"/>
             <TextBlock>
                 <Run Text="{Binding Path=LastName}"/>
@@ -72,7 +73,7 @@
         <StackPanel DockPanel.Dock="Left"
                     Margin="10">
             <Label Content="Kurzbeschreibung (ca.300 Worte):"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <TextBox x:Name="thesisAbstract"
                      Style="{StaticResource roundCornerTBox}"
                      Width="280"
@@ -81,21 +82,26 @@
                          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             <StackPanel>
                 <Label Content="Bitte Keywords eintragen"
-                   Margin="-5,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
                 <TextBox x:Name="keyword1"
                      Style="{StaticResource roundCornerTBox}"
-                     Margin="0,0,0,5"/>
+                     Margin="0,0,0,5"
+                     Width="280"/>
                 <TextBox x:Name="keyword2"
                      Style="{StaticResource roundCornerTBox}"
-                     Margin="0,0,0,5"/>
+                     Margin="0,0,0,5"
+                     Width="280"/>
                 <TextBox x:Name="keyword3"
                      Style="{StaticResource roundCornerTBox}"
-                     Margin="0,0,0,5"/>
+                     Margin="0,0,0,5"
+                     Width="280"/>
                 <TextBox x:Name="keyword4"
                      Style="{StaticResource roundCornerTBox}"
-                     Margin="0,0,0,5"/>
+                     Margin="0,0,0,5"
+                     Width="280"/>
                 <TextBox x:Name="keyword5"
-                     Style="{StaticResource roundCornerTBox}"/>
+                     Style="{StaticResource roundCornerTBox}"
+                     Width="280"/>
                 <CheckBox x:Name="privacyCheck"
                           HorizontalAlignment="Left"
                           Margin="-1,10,0,0">

@@ -34,6 +34,19 @@ namespace ThesisLibrary.Views
                     thesisListBox.Items.Add(thesis);
             }
             thesisListBox.SelectedIndex = 0;
+
+            Thesis thesisDateInfo = (Thesis)thesisListBox.SelectedItem;
+
+            if (thesisDateInfo.Status == 0)
+            {
+                startDate = default;
+                submissionDate = default;
+            }
+            else
+            {
+                startDate.Text = thesisDateInfo.StartDate;
+                submissionDate.Text = thesisDateInfo.SubmissonDate;
+            }
         }
         /// <summary>
         /// Foreach item in the Listbox the specific information shall be displayed
@@ -52,6 +65,11 @@ namespace ThesisLibrary.Views
                 continue;
             }
             thesisSatck.DataContext = (Thesis)thesisListBox.SelectedItem;
+
+            Thesis thesis = (Thesis)thesisListBox.SelectedItem;
+
+            startDate.Text = thesis.StartDate;
+            submissionDate.Text = thesis.SubmissonDate;
         }
         private void OnClickClose(object sender, RoutedEventArgs e) => this.Close();
         /// <summary>

@@ -104,5 +104,36 @@ namespace ThesisLibrary
             LookUpThesisReq lutr = new((Professor)currentUser);
             lutr.ShowDialog();
         }
+
+        private void OnClickOpenHelp(object sender, RoutedEventArgs e)
+        {
+            if (sender == visitorHelp)
+            {
+                MessageBox.Show("Als Gast können die den 'Thesis-Browser benutzen',\ndie Kurzbeschreibung einsehen und welcher Dozent die\nausgewählte Thesis betreut hat.\n\n" +
+                                "In zukunft wird es möglich sein, sich die Thesis als PDF herunterzuladen,\ndies muss der Student allerdings erlaubt haben!\n" +
+                                "Des Weiteren folgt in Zukunft auch die Filterfunktion!");
+            }
+            else if (sender == studentHelp)
+            {
+                MessageBox.Show("Als Student können sie die gewälte Thesis ihrer Kommilitonen begutachten!\nEs ist immer sichtbar, aus welchem Fachberich diese Arbeit stammt,\n" +
+                                "unter welchem Studiengang und welcher Professor die Thesis betreut hat.\nSomit soll es ihnen in Zukunft leichter fallen Inspiration und den richtigen Ansprechpartner zu finden.\n" +
+                                "Des Weiteren können sie über das Menü 'Bearbeiten'" +
+                                "die Anfrage für eine Thesis stellen, wenn ihnen diese bevorsteht.\n\nDie Filterfunktion wird in Zukunft folgen!");
+            }
+            else if (sender == professorHelp)
+            {
+                MessageBox.Show("Für sie gelten die gleichen Grundfunktionalitäten wie für den Gast,\nbitte lesen sie sich daher diese Info bitte noch durch!" +
+                                "Sie als Professor sind dazu befugt, sich alle Thesis-Anfragen anzusehen,\ndie an sie gerichtet worden sind." +
+                                "Bis dato sind sie leider nur in der Lage, die Anfrage anzunehmen.\n\nFür das ablehnen benötigen sie die Hilfe eines Datenbank-Admins.\n" +
+                                "Die Funktion wird ihnen aber in Zukunft so zur verfügung stehen,\nsodass sie dies selbstständig erledigen können.");
+            }
+            else
+            {
+                MessageBox.Show("Für sie gelten die gleichen Grundfunktionalitäten wie für den Gast,\nbitte lesen sie sich daher diese Info bitte noch durch!" +
+                                "Des Weitern sind sie dazu berechtigt, Nutzer in das System zu pflegen!\nDiese Funktion steht ihnen unter dem Menü 'Verwalten' zu verfügung\n\n" +
+                                "In Zukunft werden ihnen weiter Funktionalitäten zur Verfügung stehen!");
+            }
+
+        }
     }
 }

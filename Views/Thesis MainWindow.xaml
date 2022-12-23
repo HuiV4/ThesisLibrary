@@ -47,10 +47,18 @@
                                   Click="OnClickAddUser"/>
                     </MenuItem>
                     <MenuItem Header="Hilfe">
-                        <MenuItem Header="Besucher"/>
-                        <MenuItem Header="Student"/>
-                        <MenuItem Header="Dozent"/>
-                        <MenuItem Header="Admin"/>
+                        <MenuItem x:Name="visitorHelp"
+                                  Header="Besucher"
+                                  Click="OnClickOpenHelp"/>
+                        <MenuItem x:Name="studentHelp"
+                                  Header="Student"
+                                  Click="OnClickOpenHelp"/>
+                        <MenuItem x:Name="professorHelp"
+                                  Header="Dozent"
+                                  Click="OnClickOpenHelp"/>
+                        <MenuItem x:Name="adminHelp"
+                                  Header="Admin"
+                                  Click="OnClickOpenHelp"/>
                     </MenuItem>
                 </Menu>
             </ToolBar>

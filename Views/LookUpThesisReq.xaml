@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ThesisLibrary.Views"
         xmlns:enums="clr-namespace:ThesisLibrary.Enums"
         mc:Ignorable="d"
-        Title="Offene Anfragen" Height="500" Width="800">
+        Title="Offene Anfragen" Height="500" Width="800"
+        MaxHeight="500" MaxWidth="800">
     <DockPanel LastChildFill="False">
         <StatusBar DockPanel.Dock="Bottom"
                    Height="20"
@@ -80,17 +81,17 @@
                             Margin="10">
                     <Label Content="Startdatum"
                            FontWeight="SemiBold"
-                           Margin="-5,0,0,0"/>
+                           Style="{StaticResource parallelLabel}"/>
                     <DatePicker x:Name="startDate"
                                 LostFocus="OnSelectActivateAccept"/>
                     <Label Content="Abgabedatum"
                            FontWeight="SemiBold"
-                           Margin="-5,0,0,0"/>
+                           Style="{StaticResource parallelLabel}"/>
                     <DatePicker x:Name="submissionDate"
                                 LostFocus="OnSelectActivateAccept"/>
                     <Label Content="Bearbeitungsstatus"
                            FontWeight="SemiBold"
-                           Margin="-5,0,0,0"/>
+                           Style="{StaticResource parallelLabel}"/>
                     <ComboBox x:Name="statusBox"
                               ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:StatusEnum}}}"
                               LostFocus="OnSelectActivateAccept"/>

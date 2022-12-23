@@ -32,7 +32,7 @@
             <Label x:Name="userNav" 
                    Content="E-Mailadresse:"
                    FontSize="20" 
-                   Margin="-6,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <TextBox x:Name="userMail"
                      Width="200" 
                      Height="20" 
@@ -42,7 +42,7 @@
             <Label x:Name="userpassNav" 
                    Content="Passwort:" 
                    FontSize="20"
-                   Margin="-6,0,0,0"/>
+                   Style="{StaticResource parallelLabel}"/>
             <TextBox x:Name="userpass" 
                      HorizontalAlignment="Center"
                      Width="200" 
